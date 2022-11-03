@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="res/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="inbox-main">
+        <div id="sidebar">
+            <div id="textmark" class="smaller">
+                <h1>Email<span>.io</span></h1>
+            </div>
+            <div class="list-container">
+                <ul id="folder-list">
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">Starred</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Friends</a></li>
+                    <li><a href="#">Spam</a></li>
+                    <li><a href="#">Trash</a></li>
+                    <li><a href="#">Drafts</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="composer">
+            <a href="#" class="button">back</a>
+            <div class="text-area-parent">
+                <div id="textarea">
+                    <div class="meta-header">
+                        <div id="destination">
+                            <h3>To:</h3>
+                            <input type="email" name="destination-address" id="destination-address" placeholder="Enter the destination email address">
+                        </div>
+                        <div id="source">
+                            <h3>From:</h3>
+                            <h1>John Doe</h1>
+                            <span>johndoe@company.com</span>
+                        </div>
+                    </div>
+                    <p contenteditable="true" id="subject-input">Subject</p>
+                    <p contenteditable="true" id="email-content-text">Write your mail here...</p>
+                </div>
+            </div>
+            <div class="floating-button-bar">
+                <a href="#" class="button">attachments</a>
+                <div class="spacer"></div>
+                <a href="#" class="button">discard</a>
+                <a href="#" class="button">draft</a>
+                <a href="#" class="button">send</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
