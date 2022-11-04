@@ -1,5 +1,8 @@
-use rusqlite::{ToSql, types::ToSqlOutput};
+use rusqlite::{ToSql, types::ToSqlOutput, Connection};
 use serde::{Serialize, Deserialize};
+use std::sync::Mutex;
+
+use crate::database::Database;
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct EmailAddress {
@@ -40,4 +43,33 @@ pub struct Attachment {
 #[derive(Debug)]
 pub struct Session {
     pub username: Option<String>
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct LoginData {
+    pub email_address: String,
+    pub password: String
+}
+
+#[derive(Serialize, Deserialize, Debug)]
+pub struct RegisterData {
+    pub email_address: String,
+    pub password: String,
+    pub firstname: String,
+    pub lastname: String
+}
+
+#[derive(Debug)]
+pub struct AppState {
+    pub database: Mutex<crate::database::Database>,
+}
+
+impl AppState {
+    pub fn new(connection_url: &str) -> AppState {
+        let connection = Connection::open(connection_url).expect("failed to load database!");
+        let db = Mutex::new(Database { connection });
+        AppState {
+            database: db
+        }
+    }
 }

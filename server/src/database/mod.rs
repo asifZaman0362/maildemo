@@ -4,8 +4,9 @@ use rusqlite::{self, Connection, Result};
 use crate::types::Email;
 use crate::encryption::cipher;
 
+#[derive(Debug)]
 pub struct Database {
-    connection: Connection
+    pub connection: Connection
 }
 
 impl Database {

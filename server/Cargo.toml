@@ -7,11 +7,14 @@ edition = "2021"
 
 [dependencies]
 actix-files = "0.6.2"
+actix-session = { version = "0.7.2", features = [ "cookie-session" ] }
 actix-web = "4.2.1"
 aes = "0.8.2"
 cbc = "0.1.2"
 diesel = { version = "2.0.2", features = ["sqlite"] }
 dotenvy = "0.15.6"
+futures = "0.3.25"
+futures-util = "0.3.25"
 pbkdf2 = "0.11.0"
 rand = "0.8.5"
 rusqlite = "0.28.0"
