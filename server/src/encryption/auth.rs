@@ -28,8 +28,8 @@ impl fmt::Display for AuthError {
 
 pub fn check_auth(session: &Session) -> bool {
     // check if user is in session
-    if session.get::<String>("username").is_ok() {
-        true
+    if let Ok(result) = session.get::<String>("username") {
+        result.is_some()
     } else {
         false
     }

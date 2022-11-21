@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register | email.io</title>
+    <link rel="stylesheet" href="res/style.css">
+    <script>
+        function validate_password(form) {
+            let flags = 0;
+            let password = form.password;
+            if (password.length < 12) {
+                return false;
+            } else {
+                for (i = 0; i < password.length; i++) {
+                    let char = password.charAt(i);
+                    if ("!@#$%^&*()_+=-[]{}:;'<>,.".includes(char)) flag |= 1;
+                    else if (char >= 'a' && char <= 'z') flag |= 2;
+                    else if (char >= 'A' && char <= 'Z') flag |= 4;
+                    else if (char >= '1' && char <= '9') flag |= 8;
+                }
+                return flags == (2 | 4 | 8 | 1);
+            }
+        }
+        function onsubmit() {
+            alert("submitted");
+            if (validate_password(document.loginform)) {
+                form.submit();
+            } else {
+                alert('invalid password!');
+                document.getElementById("password_input").classList.add('invalid');
+                document.getElementById("password_input").value = "password not strong enough!";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="form-container">
+            <header>
+                <div id="textmark">
+                    <h1>Email<span>.io</span></h1>
+                </div>
+                <div class="subtitle">
+                    <h2>secure internet mailing powered by the <span>Signal protocol</span></h2>
+                </div>
+            </header>
+            <form name="loginform" class="login-form" action="register" method="post">
+                <div class="form-heading">
+                    <h1>Register</h1>
+                    <h5>Enter account credentials</h5>
+                </div>
+                <input type="email" name="email_address" id="email_input" placeholder="Enter email">
+                <input type="text" name="firstname" id="firstname_input" placeholder="Enter first name">
+                <input type="text" name="lastname" id="lastname_input" placeholder="Enter last name">
+                <input type="password" name="password" id="password_input" placeholder="Enter password">
+                <input type="submit" value="Register"> 
+                <a class="help" href="login"><span>Already have an account?</span></a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

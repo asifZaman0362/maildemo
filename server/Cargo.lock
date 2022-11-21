@@ -1272,11 +1272,13 @@ dependencies = [
  "dotenvy",
  "futures",
  "futures-util",
+ "hmac",
  "pbkdf2",
  "rand",
  "rusqlite",
  "serde",
  "serde_json",
+ "sha2",
  "uuid",
 ]
 
